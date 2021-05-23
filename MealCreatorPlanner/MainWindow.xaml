@@ -1,0 +1,63 @@
+﻿<Window x:Class="MealCreatorPlanner.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MealCreatorPlanner"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <TabControl>
+            <TabItem Name="tiIngredients" Header="Ingredients">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <ListView Name="Zutaten" Grid.Row="0" ItemsSource="{Binding Ingredients}">                        
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Vertical">
+                                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Stretch">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="*" />                                                
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+
+                                            <TextBlock Grid.Row="0" Grid.ColumnSpan="4" Text="{Binding Name}" FontSize="18" Margin="5,0" />
+                                            <TextBlock Grid.Row="1" Grid.Column="0" Text="Calories/100g" FontWeight="Bold" Margin="5,0" />
+                                            <TextBlock Grid.Row="2" Grid.Column="0" Text="{Binding CaloriesPer100g, ConverterCulture='de-DE', StringFormat=N2}" Margin="5,0" />
+
+                                            <TextBlock Grid.Row="1" Grid.Column="1" Text="Carbohydrates/100g" FontWeight="Bold" Margin="5,0" />
+                                            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding CarbsPer100g, ConverterCulture='de-DE', StringFormat=N2}" Margin="5,0" />
+
+                                            <TextBlock Grid.Row="1" Grid.Column="2" Text="Fat/100g" FontWeight="Bold" Margin="5,0" />
+                                            <TextBlock Grid.Row="2" Grid.Column="2" Text="{Binding FatPer100g, ConverterCulture='de-DE', StringFormat=N2}" Margin="5,0" />
+
+                                            <TextBlock Grid.Row="1" Grid.Column="3" Text="Protein/100g" FontWeight="Bold" Margin="5,0" />
+                                            <TextBlock Grid.Row="2" Grid.Column="3" Text="{Binding ProteinPer100g, ConverterCulture='de-DE', StringFormat=N2}" Margin="5,0" />
+                                        </Grid>
+                                    </Border>                                    
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+                    <StackPanel Grid.Row="1" Orientation="Horizontal">
+                        <Button x:Name="IngredientsAdd" Content="Add" Margin="5,0" Click="IngredientsAdd_Click" />
+                        <Button x:Name="IngredientsSave" Content="Save" Margin="5,0" Click="IngredientsSave_Click" />
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

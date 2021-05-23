@@ -1,0 +1,73 @@
+﻿<Window x:Class="MealCreatorPlanner.IngredientAdd"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MealCreatorPlanner"
+        mc:Ignorable="d"
+        Title="NeueZutat" Height="500" Width="400" Background="LightGray">
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="Margin" Value="5,0" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="15" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Add new ingredient" Grid.ColumnSpan="4" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24" />
+
+        <TextBlock Text="Name:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" />
+        <TextBox Name="Name" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" VerticalAlignment="Center" />
+
+        <TextBlock Text="Barcode:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" />
+        <TextBox Name="Barcode" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" />
+
+        <TextBlock Text="Amount Variable?" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" />
+        <CheckBox Name="AmountVariable" Grid.Row="2" Grid.Column="13" VerticalAlignment="Center" />
+
+        <TextBlock Text="Calories:" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" />
+        <TextBox Name="Calories" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" />
+
+        <TextBlock Text="Carbohydrates:" Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" />
+        <TextBox Name="Carbohydrates" Grid.Row="3" Grid.Column="3" VerticalAlignment="Center" />
+
+        <TextBlock Text="Fat:" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" />
+        <TextBox Name="Fat" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" />
+
+        <TextBlock Text="Protein:" Grid.Row="4" Grid.Column="2" VerticalAlignment="Center" />
+        <TextBox Name="Protein" Grid.Row="4" Grid.Column="4" VerticalAlignment="Center" />
+
+        <TextBlock Text="Packaging size" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" />
+        <Grid Grid.Row="6" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="4">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <DataGrid Name="PackagingSizes" Grid.Row="0" Margin="5,0">                
+            </DataGrid>
+
+            <Button Name="PackagingSizeAdd" Grid.Row="1" Content="+" HorizontalAlignment="Left" Width="40" Margin="5,5,5,0" Click="PackagingSizeAdd_Click" />
+            <Button Name="PackagingSizeDelete" Grid.Row="1" Content="-" HorizontalAlignment="Left" Width="40" Margin="50,5,5,0" Click="PackagingSizeDelete_Click" />
+        </Grid>
+
+        <Button Name="Save" Content="Save" Grid.Row="9" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0" Click="Save_Click" />
+        <Button Name="Cancel" Content="Cancel" Grid.Row="9" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5,0" Click="Cancel_Click" />
+    </Grid>
+</Window>
